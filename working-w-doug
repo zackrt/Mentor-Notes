@@ -1,0 +1,81 @@
+```const express = require('express');
+const app = new express();
+
+app.get('/', (req, res) => {
+  res.status(200).sendFile(__dirname + '/public/index.html');
+});
+
+let port = 8080;
+app
+.listen(port, () => {
+  console.log(
+    'time --> ' + new Date(),
+    `Your app is listening on port ${port}`
+  );
+});
+```
+
+
+[7:04] 
+ ```// install node from nodejs.org
+// install webpack: npm install -g webpack
+// add webpack extention to vs code
+// create project folder
+// in project folder, do npm init
+// in vs code, do Webpack Create
+// in project folder, do npm install
+// in project folder, create app folder and then index.js in the app folder
+// when ready to build files, just type "webpack" in the project root folder
+
+import $ from 'jquery';
+
+
+// const $ = {
+//   get: function(url){
+//     const data = ['apples', 'bananas', 'oranges'];
+
+//     return new Promise((resolve, reject) => {
+//       if(url){
+//         resolve(data);
+//       }
+//       reject('Please enter a url');
+//     });
+//   }
+// };
+
+
+// const apiPromise = $.get('www.dole.com');
+const apiPromise = $.get('https://rallycoding.herokuapp.com/api/music_albums');
+
+console.log(apiPromise);
+
+const lastPromise = apiPromise
+  .then((fruits) => {
+    console.log(fruits);
+    return 'hello';
+  })
+  .catch(( message) => {
+    console.log(message)
+    return 'the error was caught';
+  })
+  .then((msg) => {
+    console.log(msg);
+  })
+  .catch(() => {})
+  .then(() => {
+    return 123;
+  });
+
+  lastPromise.then((num) => console.log(num));
+
+
+// then((resolve, reject) => {})
+
+// then((resolve, null) => {})
+// catch((rejectk) => {})
+
+
+// then((null, reject) => {})
+
+
+// to use live-server to run projects, install it globally, "npm install -g live-server"```
